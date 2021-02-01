@@ -1,0 +1,157 @@
+https://www.tutorialsandyou.com/bash-shell-scripting/how-to-get-a-list-of-all-groups-in-linux-35.html
+
+
+echo -n "Enter numnber : "
+read n
+ 
+rem=$(( $n % 2 ))
+ 
+if [ $rem -eq 0 ]
+then
+  echo "$n is even number"
+else
+  echo "$n is odd number"
+fi
+
+
+
+
+read -p "Enter a number: " number
+if [ $((number%2)) -eq 0 ]
+then
+  echo "Number is even."
+else
+  echo "Number is odd."
+fi
+
+cut -d ":" -f 1 /etc/group
+
+
+
+#!/bin/bash
+# case example
+case $1 in
+start)
+echo "start the program"
+;;
+stop)
+echo stoping
+;;
+restart)
+echo restarting
+;;
+*)
+echo don\'t know
+;;
+esac
+
+
+#!/bin/bash
+# case example
+case $1 in
+1)
+echo "start the program"
+;;
+2)
+echo stoping
+;;
+3)
+echo restarting
+;;
+*)
+echo don\'t know
+;;
+esac
+
+
+
+test condition
+
+list of all user in unix system  
+
+cut -d ":" -f 1 /etc/passwd
+
+
+
+for users in `cat users.list`; do pushpasswd -u $users -v sgcsapfmsv1.ap.goodyear.com ; done
+
+
+
+
+List the User 
+ 
+#!/bin/sh
+ 
+echo "Try to list the all the user in the unix terminal"
+cut -d ":" -f 1 /etc/passwd > userlist.txt
+cat userlist.txt
+
+
+#!/bin/sh
+cut -d ":" -f 1 /etc/group > grouplist.txt
+echo "list the group user"
+cat grouplist.txt
+
+
+#!/bin/sh
+ 
+echo "Try to list the all the user in the unix terminal"
+ 
+ 
+for varTemp in `cut -d ":" -f 1 /etc/passwd`
+do
+  echo "Active User ${varTemp}"
+done
+
+
+
+#!/bin/sh
+ 
+echo "Try to list the all the user in the unix terminal"
+i=1
+ 
+for varTemp in `cut -d ":" -f 1 /etc/passwd`
+do
+ 
+  echo "Active User ${i}- ${varTemp}"
+  i=$((i+1))
+done
+ 
+echo "Total number of user in the Unix box is -- $((i-1))"
+
+
+#!/bin/sh
+
+read -p "Enter the number : " myNumber 
+
+if [ $((myNumber%2)) -eq 0 ]
+then
+  echo "The ${myNumber} is Even"
+else
+  echo "The ${myNumber} is ODD"
+fi
+
+
+
+
+#!/bin/sh
+space_free=$( df -h | awk '{ print $5 }' | sort -n | tail -n 1 | sed 's/%//' )
+case $space_free in
+[1-5]*)
+echo "${space_free} are used space no need to worry" 
+;;
+[6-7]*)
+echo "${space_free} are used space, There could be a problem in the near future"
+;; 
+8*)
+echo "${space_free} are used space, Maybe we should look at clearing out old files"
+;;
+9*)
+echo "${space_free} are used space, We could have a serious problem on our hands soon"
+;;
+*)
+echo "Something went wrong" 
+;;
+esac
+
+
